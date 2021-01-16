@@ -18,18 +18,23 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { ExoneComponent } from './exone/exone.component';
+import { ExtwoComponent } from './extwo/extwo.component';
+import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
     DashboardComponent,
-    ExoneComponent
+    ExoneComponent,
+    ExtwoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
