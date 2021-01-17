@@ -1,11 +1,20 @@
-<div class="grid-container">
-    <h1 class="mat-h1">Exercicio 1</h1>
-    <mat-card>
-        <form class="example-form">
-            <mat-form-field>
-                <mat-label>Numero</mat-label>
-                <input matInput>
-            </mat-form-field>
-        </form>
-    </mat-card>
-</div>
+<h1 class="mat-h1">Exercicio 1</h1>
+<mat-card>
+    <form class="example-form">
+        <mat-form-field class="mr-10">
+            <mat-label>Add Valor</mat-label>
+            <input matInput type="number" [(ngModel)]="value" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="onAddList(value)">ADD</button>
+    </form>
+    <p *ngIf="checkValue(value)"> Valor deve estar entre -1000 e 1000</p>
+
+    <div class="card-number" *ngIf="valuesList.length > 0">
+        <div class="added">
+            <p *ngFor="let valueItem of valuesList;">{{ valueItem }}</p>
+        </div>
+        <div class="ordered">
+            <p *ngFor="let orderedItem of orderedList;">{{ orderedItem }}</p>
+        </div>
+    </div>
+</mat-card>

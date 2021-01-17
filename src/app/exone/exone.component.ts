@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-exone',
@@ -9,6 +8,26 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 export class ExoneComponent implements OnInit {
 
   constructor() { }
+
+  value: string = ''
+  valuesList: number[] = []
+  orderedList: number[] = []
+
+  checkValue(value: string) {
+    let val: number = parseFloat(value)
+    return val >= -1000 && val <= 1000 ? true : false
+  }
+
+  onAddList(value: string) {
+    let val: number = parseFloat(value)
+    if (val >= -1000 && val <= 1000) {
+      this.valuesList.push(val)
+      this.orderedList.push(val)
+      this.orderedList.sort((firstElement, secondeElement) => firstElement - secondeElement)
+      this.orderedList = this.orderedList.filter((element, index, arr) => arr.indexOf(element) === index)
+      this.value = ''
+    }
+  }
 
   ngOnInit(): void {
   }
